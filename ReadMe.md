@@ -6,7 +6,7 @@ This project represents my contributions to the group project [Portrait Face Swa
 1. [Face Morph](#face-morph)
 1. [ Morphing on Annotated, Aligned Faces](#morphing-on-annotated-aligned-faces)
 1. [Facial Keypoint Detection with DLIB and Automatic Alignment](#facial-keypoint-detection-with-dlib-and-automatic-alignment)
-1. [Face Cutting, Blending, Face Swap](#face-cutting-blending-face-swap)   
+1. [Face Cutting, Blending, and Face Swap](#face-cutting-blending-and-face-swap)   
 1. [References and Acknowledgements](#references-and-acknowledgements)
 
 
@@ -32,7 +32,7 @@ The [FEI face database](https://fei.edu.br/~cet/facedatabase.html) is a Brazilia
 
 ![""](./images/triangulation_men_faces2.png "title")
 
-Since these images are the same size and are frontal shots, there is not need to scale and align the images. The Delaunay triangulation is calculated on each face image using the provided facial keypoints.
+Since these images are the same size and are frontal shots, there is no need to scale and align the images. The Delaunay triangulation is calculated on each face image using the provided facial keypoints.
 
 ### Morph Two Faces:
 ![""](./images/morph_panel_men2.png "title")
@@ -88,7 +88,7 @@ The next two examples demonstrate that DLIB can also detect facial keypoints in 
 <br>
 
 
-# Face Cutting, Blending, Face Swap
+# Face Cutting, Blending, and Face Swap
 Face swap in this project extracts the face from an image and superimposes it on a famous portrait. Face swap is performed as follows:
 
 1. Extract the face by calculating the convex hull of its facial keypoints to create a mask
@@ -96,7 +96,7 @@ Face swap in this project extracts the face from an image and superimposes it on
 1. Optionally, perform color correction to scale each pixel by the ratio of pixel intensities between the portrait and the warped/morphed face across each color channel
 1. Poisson blend the face into the portrait
 
-Face swap is also tested by warping the face image directly onto the portrait in contrast to face morp where both faces are first tranformed to an intermediate face. This process is called face warp to distinguish it from face morph. The face warping process is defined below: 
+Face swap is also tested by warping the face image directly onto the portrait in contrast to face morph where both faces are first tranformed to an intermediate face. This process is called face warp to distinguish it from face morph. The face warping process is defined below: 
 1. Construct Delaunay triangulation for each face using their respective facial keypoints
 1. Find the affine transformations between the triangles in the face image and the portrait
 1. Warp each triangle of face image to the portrait
